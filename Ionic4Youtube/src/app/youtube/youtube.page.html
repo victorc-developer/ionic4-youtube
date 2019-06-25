@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ionic4Youtube</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h1 class="title">Ionic 4<br/> Youtube Video Player</h1>
+
+  <ng-container *ngIf="playlists">
+    <ion-card *ngFor="let list of playlists.items" (click)="openPlaylist(list.id)">
+        <ion-img [src]="list.snippet.thumbnails.standard.url"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>{{ list.snippet.title }}</ion-card-subtitle>
+          <ion-card-title>{{ list.snippet.publishedAt | date:'short' }}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+            {{ list.snippet.description }}
+        </ion-card-content>
+      </ion-card>
+      
+  </ng-container>
+
+</ion-content>
